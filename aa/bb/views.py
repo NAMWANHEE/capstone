@@ -15,6 +15,8 @@ def Str(request):
         model = request.GET['model']
         maturity = (int(temp) + 10) * int(time)
         if model == 'Plowman':
+            pass
+            '''
             if wc == '40':
                 pred_7 = -102.8256 + (66.4097 * np.log(maturity * 7 / int(time)))
                 pred_14 = -102.8256 + 66.4097 * math.log(maturity * 14 / int(time))
@@ -44,9 +46,9 @@ def Str(request):
                 "14days": pred_14,
                 "28days": pred_28,
                 "90days": pred_90}
-
-        return Response(pred)
-
+        pred1 = json.loads(json.dumps(pred))
+        return Response(pred1)
+    '''
     elif request.method == 'POST':
         temp_data = request.data['temp']
         wc = request.data['wc']
